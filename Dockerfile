@@ -1,7 +1,8 @@
 # Update image and install tools, dependencies
 FROM alpine:latest AS base
 RUN apk -U upgrade
-RUN apk add --no-cache python3 py3-pip build-base samurai gdb git wget linux-headers openssl-dev protobuf-dev gcompat tar
+RUN apk add --no-cache python3 pipx build-base samurai gdb git wget linux-headers openssl-dev protobuf-dev gcompat tar
+RUN pipx install gcovr
 
 # Install CMake
 FROM base AS cmake-build
