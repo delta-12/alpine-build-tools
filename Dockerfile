@@ -6,7 +6,7 @@ RUN pipx install gcovr
 
 # Install CMake
 FROM base AS cmake-build
-ENV CMAKE_VERSION=3.30
+ENV CMAKE_VERSION=4.0
 ENV CMAKE_BUILD=2
 WORKDIR /opt
 RUN wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.$CMAKE_BUILD.tar.gz
@@ -53,8 +53,8 @@ RUN uncrustify --version
 
 # Install Valgrind
 FROM uncrustify-build AS valgrind-build
-ENV VALGRIND_VERSION=3.23
-ENV VALGRIND_BUILD=0
+ENV VALGRIND_VERSION=3.25
+ENV VALGRIND_BUILD=1
 RUN apk --no-cache add perl
 WORKDIR /opt
 RUN mkdir valgrind
